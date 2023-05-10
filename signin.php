@@ -93,7 +93,7 @@
     // If no errors, insert into database
     if (empty($nomeErr) && empty($cognomeErr) && empty($usernameErr) && empty($emailErr) && empty($passwordErr)) {
       $premium = False;
-      $query_insert = "INSERT INTO utenti (Nome, Cognome, Username, Password, Email, Premium) VALUES (?, ?, ?, ?, ?, ?)";
+      $query_insert = "INSERT INTO utenti (nome, cognome, username, password, email, premium) VALUES (?, ?, ?, ?, ?, ?)";
       $stmt = $connessione->prepare($query_insert);
       $stmt->bind_param("sssssb", $nome, $cognome, $username, $password_hash, $email, $premium);
       if ($stmt->execute()) {

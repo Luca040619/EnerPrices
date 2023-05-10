@@ -55,11 +55,11 @@
                 // Password is correct, start the session
                 session_start();
                 // Save user data in session variables
-                $_SESSION['Nome'] = $user['Nome'];
-                $_SESSION['Cognome'] = $user['Cognome'];
-                $_SESSION['Username'] = $user['Username'];
-                $_SESSION['Email'] = $user['Email'];
-                $_SESSION['Premium'] = $user['Premium'];
+                $_SESSION['nome'] = $user['nome'];
+                $_SESSION['cognome'] = $user['cognome'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['premium'] = $user['premium'];
                 
                 echo "Login riuscito!";
             } else {
