@@ -2,10 +2,12 @@
 <html>
 
 <head>
-  <style>
-    .error {
-      color: #FF0000;
-    }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="icon" type="image/gif" href="Icons/Logo Progetto Gpoi V2.png">
+  <link rel="stylesheet" href="styles.css">
   </style>
 </head>
 
@@ -43,54 +45,58 @@
 
     // If no errors, check credentials in database
     if (empty($usernameErr) && empty($passwordErr)) {
-        $query_check = "SELECT * FROM utenti WHERE username = ?";
-        $stmt = $connessione->prepare($query_check);
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
-            // User exists, check password
-            $user = $result->fetch_assoc();
-            if (password_verify($password, $user["password"])) {
-                // Password is correct, start the session
-                session_start();
-                // Save user data in session variables
-                $_SESSION['nome'] = $user['nome'];
-                $_SESSION['cognome'] = $user['cognome'];
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['email'] = $user['email'];
-                $_SESSION['premium'] = $user['premium'];
-                
-                echo "Login riuscito!";
-            } else {
-                $passwordErr = "Password non valida!";
-            }
+      $query_check = "SELECT * FROM utenti WHERE username = ?";
+      $stmt = $connessione->prepare($query_check);
+      $stmt->bind_param("s", $username);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      if ($result->num_rows > 0) {
+        // User exists, check password
+        $user = $result->fetch_assoc();
+        if (password_verify($password, $user["password"])) {
+          // Password is correct, start the session
+          session_start();
+          // Save user data in session variables
+          $_SESSION['nome'] = $user['nome'];
+          $_SESSION['cognome'] = $user['cognome'];
+          $_SESSION['username'] = $user['username'];
+          $_SESSION['email'] = $user['email'];
+          $_SESSION['premium'] = $user['premium'];
+
+          header('Location: index.html');
         } else {
-            $usernameErr = "Username non valido!";
+          $passwordErr = "Password non valida!";
         }
+      } else {
+        $usernameErr = "Username non valido!";
+      }
     }
-}
-function test_input($data)
-{
+  }
+  function test_input($data)
+  {
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
-}
-?>
+  }
+  ?>
 
-<h2>LOGIN</h2>
-<p><span class="error">* required field</span></p>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    Username: <input type="text" name="username" value="<?php echo $username; ?>">
-    <span class="error">* <?php echo $usernameErr; ?></span>
-    <br><br>
-    Password: <input type="password" name="password" value="<?php echo $password; ?>">
-    <span class="error">* <?php echo $passwordErr; ?></span>
-    <br><br>
-    <input type="submit" name="submit" value="Submit">
-    <input type="button" value="Reset" onclick="location.href='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'">
-</form>
+  <img src="Icons/Logo Progetto Gpoi.png" alt="Logo Ener Prices" id="login-logo">
+  <div id="login-container">
+    <h1 class="big-titles" id="login-title">Login</h1>
+    <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+      <label for="user" class="form-label">Username </label><span class="error">*
+        <?php echo $usernameErr; ?>
+      </span><br>
+      <input id="user" name="username" type="text" class="form-field"><br>
+      <label for="psw" class="form-label">Password </label><span class="error">*
+        <?php echo $passwordErr; ?>
+      </span><br>
+      <input id="psw" name="password" type="password" class="form-field"><br>
+      <button type="button" onclick='window.location.href = "signin.php"' id="sign-up" class="login-btn">Sign up</button>
+      <button type="submit" id="sign-in" class="login-btn" value="Submit">Login</button>
+    </form>
+  </div>
 
 </body>
 
