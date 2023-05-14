@@ -278,6 +278,10 @@ body {
         margin-right: 0;
         margin-top: 6px;
     }
+
+    .navbar {
+        min-height: calc(100vh - 60px); /* Sostituisci 60px con l'altezza della tua barra di navigazione */
+    }
 }
 
 /* Stili per dispositivi con una larghezza massima di 1200px (ad esempio, tablet) */
