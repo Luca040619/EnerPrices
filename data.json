@@ -9,7 +9,7 @@
             "month": "6-2022",
             "priceEnergy": 0.271,
             "priceGPL": 1.777,
-            "pricePetrolium": 113.20
+            "pricePetrolium": 113.2
         },
         {
             "month": "7-2022",
@@ -21,11 +21,11 @@
             "month": "8-2022",
             "priceEnergy": 0.543,
             "priceGPL": 1.772,
-            "pricePetrolium": 100.00
+            "pricePetrolium": 100.0
         },
         {
             "month": "9-2022",
-            "priceEnergy": 0.430,
+            "priceEnergy": 0.43,
             "priceGPL": 1.771,
             "pricePetrolium": 92.58
         },
@@ -57,7 +57,7 @@
             "month": "2-2023",
             "priceEnergy": 0.161,
             "priceGPL": 1.831,
-            "pricePetrolium": 82.60
+            "pricePetrolium": 82.6
         },
         {
             "month": "3-2023",
