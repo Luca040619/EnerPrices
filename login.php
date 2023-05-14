@@ -8,7 +8,6 @@
   <title>Login</title>
   <link rel="icon" type="image/gif" href="Icons/Logo Progetto Gpoi V2.png">
   <link rel="stylesheet" href="styles.css">
-  </style>
 </head>
 
 <body>
@@ -62,8 +61,9 @@
           $_SESSION['username'] = $user['username'];
           $_SESSION['email'] = $user['email'];
           $_SESSION['premium'] = $user['premium'];
+          $_SESSION['ip_address'] = $_SERVER['REMOTE_ADDR']; // non facciamoci caso
 
-          header('Location: index.html');
+          header('Location: index.php');
         } else {
           $passwordErr = "Password non valida!";
         }
@@ -81,7 +81,7 @@
   }
   ?>
 
-  <img src="Icons/Logo Progetto Gpoi.png" alt="Logo Ener Prices" id="login-logo">
+  <img src="Icons/logoprova.png" alt="Logo Ener Prices" id="login-logo">
   <div id="login-container">
     <h1 class="big-titles" id="login-title">Login</h1>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
@@ -93,7 +93,7 @@
         <?php echo $passwordErr; ?>
       </span><br>
       <input id="psw" name="password" type="password" class="form-field"><br>
-      <button type="button" onclick='window.location.href = "signin.php"' id="sign-up" class="login-btn">Sign up</button>
+      <button type="button" onclick='window.location.href = "signin.php"' id="sign-up" class="login-btn">Sign in</button>
       <button type="submit" id="sign-in" class="login-btn" value="Submit">Login</button>
     </form>
   </div>

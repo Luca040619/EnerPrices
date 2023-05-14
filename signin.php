@@ -2,11 +2,12 @@
 <html>
 
 <head>
-  <style>
-    .error {
-      color: #FF0000;
-    }
-  </style>
+<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signin</title>
+  <link rel="icon" type="image/gif" href="Icons/Logo Progetto Gpoi V2.png">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -95,7 +96,7 @@
       $premium = False;
       $query_insert = "INSERT INTO utenti (nome, cognome, username, password, email, premium) VALUES (?, ?, ?, ?, ?, ?)";
       $stmt = $connessione->prepare($query_insert);
-      $stmt->bind_param("sssssb", $nome, $cognome, $username, $password_hash, $email, $premium);
+      $stmt->bind_param("sssssi", $nome, $cognome, $username, $password_hash, $email, $premium);
       if ($stmt->execute()) {
         echo "Utente registrato con successo.";
         header('Location: login.php');
@@ -113,39 +114,34 @@
     return $data;
   }
   ?>
-
-  <h2>REGISTRAZIONE</h2>
-  <p><span class="error">* required field</span></p>
-  <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    Nome: <input type="text" name="nome" value="<?php echo $nome; ?>">
-    <span class="error">*
-      <?php echo $nomeErr; ?>
-    </span>
-    <br><br>
-    Cognome: <input type="text" name="cognome" value="<?php echo $cognome; ?>">
-    <span class="error">*
-      <?php echo $cognomeErr; ?>
-    </span>
-    <br><br>
-    Username: <input type="text" name="username" value="<?php echo $username; ?>">
-    <span class="error">*
-      <?php echo $usernameErr; ?>
-    </span>
-    <br><br>
-    E-mail: <input type="text" name="email" value="<?php echo $email; ?>">
-    <span class="error">*
-      <?php echo $emailErr; ?>
-    </span>
-    <br><br>
-    Password: <input type="password" name="password" value="<?php echo $password; ?>">
-    <span class="error">*
-      <?php echo $passwordErr; ?>
-    </span>
-    <br><br>
-    <input type="submit" name="submit" value="Submit">
-    <input type="button" value="Reset" onclick="location.href='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'">
-  </form>
-
+  <img src="Icons/logoprova.png" alt="Logo Ener Prices" id="login-logo">
+  <div id="login-container">
+    <h1 class="big-titles" id="login-title">Sign-in</h1>
+    <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+      <label for="nome" class="form-label">Nome </label><span class="error">*
+        <?php echo $nomeErr; ?>
+      </span><br>
+      <input id="nome" name="nome" type="text" class="form-field" value="<?php echo $nome;?>"><br>
+      <label for="cognome" class="form-label">Cognome </label><span class="error">*
+        <?php echo $cognomeErr; ?>
+      </span><br>
+      <input id="cognome" name="cognome" type="text" class="form-field" value="<?php echo $cognome;?>"><br>
+      <label for="user" class="form-label">Username </label><span class="error">*
+        <?php echo $usernameErr; ?>
+      </span><br>
+      <input id="user" name="username" type="text" class="form-field" value="<?php echo $username;?>"><br>
+      <label for="email" class="form-label">Email </label><span class="error">*
+        <?php echo $emailErr; ?>
+      </span><br>
+      <input id="email" name="email" type="text" class="form-field" value="<?php echo $email;?>"><br>
+      <label for="psw" class="form-label">Password </label><span class="error">*
+        <?php echo $passwordErr; ?>
+      </span><br>
+      <input id="psw" name="password" type="password" class="form-field"><br>
+      <button type="button" onclick='window.location.href = "login.php"' id="sign-up" class="login-btn">Login</button>
+      <button type="submit" id="sign-in" class="login-btn" value="Submit">Sign in</button>
+    </form>
+  </div>
 </body>
 
 </html>
