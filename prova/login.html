@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" type="image/gif" href="Icons/Logo Progetto Gpoi V2.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <img src="Icons/Logo Progetto Gpoi.png" alt="Logo Ener Prices" id="login-logo">
+    <div id="login-container">
+        <h1 class="big-titles" id="login-title" >Login</h1>
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+            <label for="user" class="form-label">Username</label><br>
+            <input id="user" name="username" type="text" class="form-field"><br>
+            <label for="psw" class="form-label">Password</label><br>
+            <input id="psw" name="password" type="password" class="form-field"><br>
+            <button type="submit" id="sign-up" class="login-btn">Sign up</button>
+            <button type="submit" id="sign-in" class="login-btn">Login</button>
+        </form>
+    </div>
+</body>
+</html>

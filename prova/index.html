@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prototipo applicazione 'Ener Prices'">
+    <title>Ener Prices - Homepage</title>
+    <link rel="icon" type="image/gif" href="Icons/Logo Progetto Gpoi V2.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <label class="navbar-icon">
+                <input type="checkbox">
+            </label>
+        <aside class="navbar">
+            <nav>
+                <div class="navbar-container">
+                    <a href="" class="navbar-btn">
+                        <img class="sideIcon" src="Icons/bolt icon 2.svg" alt="Energy Icon"><p>Electricity</p>
+                    </a>
+                </div>
+                <div class="navbar-container">
+                    <a href="" class="navbar-btn">
+                        <img class="sideIcon" src="Icons/oil icon.svg" alt="Oil Icon"><p>Oil</p>
+                    </a>
+                </div>
+                <div class="navbar-container">
+                    <a href="" class="navbar-btn">
+                        <img class="sideIcon" src="Icons/gas icon.svg" alt="Gas Icon"><p>Gas</p>
+                    </a>
+                </div>
+                <div id="settsIcon">
+                    <a href="">
+                        <img class="sideIcon"  src="Icons/settings icon.svg" alt="Settings Icon">
+                    </a>
+                </div>
+            </nav>
+        </aside>
+        <img src="Icons/Logo Progetto Gpoi.png" alt="Logo Ener Prices" id="Homepage-logo">
+    </header>
+    <section class="pricebox-section">
+        <h1 class="title" id="energy-name">Gas</h1>
+        <p class="subtitle">Current Price</p>
+        <div class="price-container">
+            <div class="price-box">
+                <h1 class="title">0,00€</h1>
+            </div>
+            <div class="percentage-indicator">
+                <div class="arrow-container">
+                    <svg id="arrow" width="8" height="15" viewBox="0 0 8 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.5 14C3.5 14.2761 3.72386 14.5 4 14.5C4.27614 14.5 4.5 14.2761 4.5 14H3.5ZM4.35355 0.646446C4.15829 0.451184 3.84171 0.451184 3.64645 0.646446L0.464466 3.82843C0.269204 4.02369 0.269204 4.34027 0.464466 4.53553C0.659728 4.7308 0.976311 4.7308 1.17157 4.53553L4 1.70711L6.82843 4.53553C7.02369 4.7308 7.34027 4.7308 7.53553 4.53553C7.7308 4.34027 7.7308 4.02369 7.53553 3.82843L4.35355 0.646446ZM4.5 14L4.5 1H3.5L3.5 14H4.5Z" fill="#30E0A1"/>
+                    </svg>
+                </div>
+                <p class="percentage">0.00%</p>
+            </div>
+        </div>
+    </section>
+    <section class="chart-section">
+        <div class="chart-title-container">
+            <h1 class="title" id="chart-title">Trending</h1>
+            <svg id="star-icon" width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.72 25.0658L16 21.3553L22.28 25.1053L20.6 18.0789L26.12 13.3421L18.84 12.7105L16 6.07895L13.16 12.6711L5.88 13.3026L11.4 18.0395L9.72 25.0658ZM6.12 30L8.72 18.9079L0 11.4474L11.52 10.4605L16 0L20.48 10.4605L32 11.4474L23.28 18.9079L25.88 30L16 24.1184L6.12 30Z" fill="#FDC323"/>
+            </svg>
+        </div>
+        <p class="subtitle">Last 10 days</p>
+        <div class="chart-container">
+            <!--grafico-->
+        </div>
+    </section>
+    <section class="table-section">
+
+    </section>
+</body>
+
+</html>
