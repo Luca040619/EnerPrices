@@ -20,7 +20,7 @@ class AutoData():
     def __init__(self):
         self.site_energy = "https://www.mercatoelettrico.org/it/Statistiche/ME/DatiSintesi.aspx"
         self.site_gpl = "https://www.cuneoprezzi.it/ingrosso/energetici/?category=19"
-        self.site_petrolium = "https://mercati.ilsole24ore.com/materie-prime/commodities/petroliumio/BRNST.IPE?refresh_ce&nof"
+        self.site_petrolium = "https://mercati.ilsole24ore.com/materie-prime/commodities/petrolio/BRNST.IPE"
         self.options = Options()
         self.options.add_argument('--headless')
         self.options.add_argument('--no-sandbox')
@@ -133,14 +133,14 @@ class AutoData():
         if todayMonth.startswith('0'):
             todayMonth = todayMonth[1:]
 
-        with open('data.json', 'r') as file:
+        with open('/var/www/html/enerprices/data.json', 'r') as file:
             data = json.load(file)
 
         data['today']['energy'] = self.price_energy
         data['today']['gpl'] = self.price_gpl
         data['today']['petrolium'] = self.price_petrolium
             
-        with open('data.json', 'w') as f:
+        with open('/var/www/html/enerprices/data.json', 'w') as f:
             json.dump(data, f, indent=4)
 
 autodata = AutoData()
